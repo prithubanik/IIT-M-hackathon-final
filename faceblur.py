@@ -4,16 +4,8 @@ import cv2
 # to detect the face of the human
 cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
-# VideoCapture is a function, to capture
-# video from the camera attached to system
-# You can pass either 0 or 1
-# 0 for laptop webcam
-# 1 for external webcam
-#video_capture = cv2.VideoCapture(0)
 video_capture = cv2.VideoCapture(r"C:\Users\asush\OneDrive\Documents\python\FullSizeRender.MOV")
-# a while loop to run infinite times,
-# to capture infinite number of frames for video
-# because a video is a combination of frames
+
 while True:
 	
 	# capture the latest frame from the video
@@ -22,13 +14,7 @@ while True:
 	# convert the frame into grayscale(shades of black & white)
 	gray_image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-	# detect multiple faces in a captured frame
-	# scaleFactor: Parameter specify how much the
-	# image sizeis reduced at each image scale.
-	# minNeighbors: Parameter specify how many
-	# neighbours each rectangle should have to retain it.
-	# rectangle consists the detect object.
-	# Here the object is the face.
+
 	face = cascade.detectMultiScale(
 		gray_image, scaleFactor=2.0, minNeighbors=4)
 
